@@ -1,0 +1,90 @@
+<div>
+    <mat-card>
+      <mat-tab-group>
+        <mat-tab label="Question">
+          <form [formGroup]="formQuestion" (ngSubmit)="submitQuestion();" class="style">
+            <div class="input-group mb-3">
+              <input
+                type="text"
+                class="form-control"
+                aria-label="pergunta"
+                aria-describedby="pergunta"
+                formControlName="pergunta"
+              />
+            </div>
+
+            <div>
+              <button
+                type="submit">
+                Fazer Pergunta
+              </button>
+            </div>
+
+          </form>
+          <div class="style" *ngFor="let p of pergunta">
+            <button (click)="editarPergunta(p)" style="margin-right: 3px;">Edit</button>
+            <button (click)="deletarPergunta(p.id)">Delete</button>
+          </div>
+        </mat-tab>
+        <mat-tab label="Answers">
+          <form [formGroup]="formAnswers" (ngSubmit)="submitAnswer();" class="style">
+            <div class="input-group mb-3">
+              <input
+                type="text"
+                class="form-control"
+                aria-label="resposta1"
+                aria-describedby="basic-addon1"
+                formControlName="resposta1"
+              />
+            </div>
+
+            <div class="input-group mb-3">
+              <input
+                type="text"
+                class="form-control"
+                aria-label="Username"
+                aria-describedby="basic-addon1"
+                formControlName="resposta2"
+              />
+            </div>
+
+            <div >
+              <button
+                type="submit"
+                >
+                Enviar Respostas
+              </button>
+            </div>
+          </form>
+
+          <ng-container *ngIf="respostas.length > 0; else empty">
+            <mat-card>
+                <mat-card-content>
+                    <mat-list role="list">
+                        <div *ngFor="let res of respostas" class="grid">
+                            <h4 role="listitem">{{res.resposta1}}</h4>
+                            <h4 role="listitem">{{res.resposta2}}</h4>
+                            <h4 role="listitem">{{res.id}}</h4>
+                            <h4 role="listitem"><button (click)="edit(res)">Edit</button></h4>
+                            <h4 role="listitem"><button (click)="delete(res.id)">Delete</button></h4>
+                        </div>
+                    </mat-list>
+                </mat-card-content>
+            </mat-card>
+          </ng-container>
+          <ng-template #empty>
+              <div>
+                  <em>Empty</em>
+              </div>
+          </ng-template>
+        </mat-tab>
+      </mat-tab-group>
+    </mat-card>
+    <div class="style">
+      <h2>Layouts</h2>
+      <button routerLink="/checkbox">Checkbox</button><br>
+      <button routerLink="/select">Select</button><br>
+      <button routerLink="/caixa">Caixa</button><br>
+      <button routerLink="/link">Link</button>
+    </div>
+</div>

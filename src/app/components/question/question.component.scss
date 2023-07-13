@@ -1,0 +1,11 @@
+// margem para os formulários
+.style {
+    margin: 7px;
+}
+
+// layout para as respostas
+.grid {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

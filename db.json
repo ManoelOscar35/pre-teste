@@ -1,0 +1,15 @@
+{
+  "perguntas": [
+    {
+      "id": 1,
+      "pergunta": "Qual o sexo?"
+    }
+  ],
+  "respostas": [
+    {
+      "id": 1,
+      "resposta1": "Menino",
+      "resposta2": "Menina"
+    }
+  ]
+}
